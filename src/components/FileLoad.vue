@@ -1,14 +1,13 @@
 <template>
   <div class="hello">
     <uploader
-        browse_button="upload_word"
+        browse_button="upload_excel"
         :url="server_config.url+'/file/upload'"
         :multi_selection="false"
         :FilesAdded="filesAdded"
         :filters="{
           mime_types : [
             { title : 'Excel files', extensions : 'xlsx' },
-            { title : 'Word files', extensions : 'docx' }
           ],
           max_file_size : '400Mb'
         }"
@@ -19,27 +18,7 @@
     <ul>
       <li>
         <span v-for="(file, index) in files" :key="index">{{file.name}}</span>
-        <el-button id="upload_word" type="primary" round>选择文件</el-button>
-      </li>
-      <br>
-      <li>
-        <el-button type="danger" @click="uploadStart()" round>开始上传</el-button>
-      </li>
-      <br>
-      <li>
-        <el-dialog title="正在上传" :visible.sync="dialogTableVisible">
-          <el-progress v-if="files.length>0" :text-inside="true" :stroke-width="20" :percentage="files[0].percent"></el-progress>
-        </el-dialog>
-      </li>
-      <li>
-        <el-tag type="warning">只允许.xlsx文件, 最大只能上传100Mb的文件</el-tag>
-      </li>
-    </ul>
-    <h2>Word模板上传</h2>
-    <ul>
-      <li>
-        <!-- <span v-for="(file, index) in files" :key="index">{{file.name}}</span> -->
-        <el-button id="upload_word" type="primary" round>选择文件</el-button>
+        <el-button id="upload_excel" type="primary" round>选择文件</el-button>
       </li>
       <br>
       <li>
@@ -83,6 +62,7 @@ export default {
             confirmButtonText: '确定',
             type: 'warning'
           }).then(() => {
+            this.$router.push({ path: '/word'})
             this.dialogTableVisible = false;
           });
         }

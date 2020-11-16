@@ -6,11 +6,17 @@ import router from './router'
 import global from './Global'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import VueRouter from 'vue-router'
 
 Vue.config.productionTip = false
 Vue.prototype.global = global;
 
 Vue.use(ElementUI)
+
+// const router = new VueRouter({
+//   mode: 'history',
+//   routers: routers
+// })
 
 /* eslint-disable no-new */
 new Vue({
