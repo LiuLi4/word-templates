@@ -9,7 +9,7 @@
           mime_types : [
             { title : 'Excel files', extensions : 'xlsx' },
           ],
-          max_file_size : '400Mb'
+          max_file_size : '10Mb'
         }"
         @inputUploader="inputUploader"
       />
