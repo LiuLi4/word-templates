@@ -13,16 +13,17 @@
         }"
         @inputUploader="inputUploader"
       />
-    <h1>{{ msg }}</h1>
+    <img src="../assets/Excel.png" id="banner">
+    <span id="msg">{{ msg }}</span>
     <h2>Excel数据上传</h2>
     <ul>
       <li>
-        <span v-for="(file, index) in files" :key="index">{{file.name}}</span>
-        <el-button id="upload_excel" type="primary" round>选择文件</el-button>
+        <span id="filename" v-for="(file, index) in files" :key="index">{{file.name}}</span>
+        <el-button id="upload_excel" type="primary" icon="el-icon-document" plain round>选择文件</el-button>
       </li>
       <br>
       <li>
-        <el-button type="danger" @click="uploadStart()" round>开始上传</el-button>
+        <el-button id="upload" type="danger" @click="uploadStart()" icon="el-icon-upload" plain round>开始上传</el-button>
       </li>
       <br>
       <li>
@@ -31,7 +32,7 @@
         </el-dialog>
       </li>
       <li>
-        <el-tag type="warning">只允许.docx文件, 最大只能上传100Mb的文件</el-tag>
+        <el-tag id="warning" type="warning">只允许.xlsx文件, 最大只能上传100Mb的文件</el-tag>
       </li>
     </ul>
   </div>
@@ -96,18 +97,59 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-flexbox;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  .hello {
+    margin: 0;
+    padding: 0;
+    background-image: url(../assets/background.jpg);
+    background-size: cover;
+    overflow: hidden;
+    height: 97vh;
+  }
+  #filename,#upload_excel,#upload{
+    position: relative;
+    left: 200px;
+    top: 190px;
+    width:15%;
+    font-weight: bolder;
+    font-size: large;
+  }
+  #warning{
+    position: relative;
+    left: 200px;
+    top: 200px;
+  }
+  #banner{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 210px;
+    left: 670px;
+  }
+  #msg, h2 {
+    font-weight: bold;
+    font-size: 25px;
+    position: relative;
+    left: 200px;
+    top: 100px;
+    color: #13ce66;
+    text-shadow: 3px 3px rgba(197, 223, 248,0.8),4px 4px rgba(197, 223, 248,0.8),5px 5px rgba(197, 223, 248,0.8),6px 6px rgba(197, 223, 248,0.8),7px 7px rgba(197, 223, 248,0.8),8px 8px rgba(197, 223, 248,0.8);
+  }
+  #msg{
+    font-size: 50px;
+    left: 150px;
+    color: #000080;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-flexbox;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
 </style>
+
+
