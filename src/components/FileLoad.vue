@@ -7,7 +7,7 @@
         :FilesAdded="filesAdded"
         :filters="{
           mime_types : [
-            { title : 'Excel files', extensions : 'xlsx' },
+            { title : 'Excel files', extensions : 'xlsx,csv' },
           ],
           max_file_size : '10Mb'
         }"
@@ -15,7 +15,7 @@
       />
     <img src="../assets/Excel.png" id="banner">
     <span id="msg">{{ msg }}</span>
-    <h2>Excel数据上传</h2>
+    <h2>数据上传</h2>
     <ul>
       <li>
         <span id="filename" v-for="(file, index) in files" :key="index">{{file.name}}</span>
@@ -32,7 +32,7 @@
         </el-dialog>
       </li>
       <li>
-        <el-tag id="warning" type="warning">只允许.xlsx文件, 最大只能上传100Mb的文件</el-tag>
+        <el-tag id="warning" type="warning">只允许.xlsx和.csv文件, 最大只能上传100Mb的文件</el-tag>
       </li>
     </ul>
   </div>
