@@ -20,7 +20,7 @@
     <h2>Word模板上传</h2>
     <ul>
       <li>
-        <span v-for="(file, index) in files" :key="index">{{file.name}}</span>
+        <span id="filename" v-for="(file, index) in files" :key="index">{{file.name}}</span>
         <el-button id="upload_word" type="primary" icon="el-icon-document" plain round>选择文件</el-button>
       </li>
       <br>
@@ -135,7 +135,7 @@ export default {
     overflow: hidden;
     height: 97vh;
   }
-  #upload_word,#upload{
+  #filename,#upload_word,#upload{
     position: relative;
     left: 200px;
     top: 190px;
