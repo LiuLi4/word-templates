@@ -31,3 +31,11 @@ url: jdbc:mysql://localhost:3306/wordlates?useUnicode=true&characterEncoding=utf
 java -jar  运行项目
 
 #测试项目
+```
+## Windows环境下常用到命令
+
+查找被占用的端口
+netstat -ano | findstr "1080"
+
+根据进程父ID杀死进程
+taskkill /pid 5588 /f
